@@ -2,94 +2,80 @@
 
 // Тема 1: __proto__ та Object.create
 const figurePrototype = {
-  name: "",
-  sides: [],
-
-  getSidesInfo() {
-    let result = "";
-
-    for (let i = 0; i < this.sides.length; i++) {
-      result += `${this.sides[i].name}: ${this.sides[i].length}`;
-
-      if (i !== this.sides.length - 1) {
-        result += ", ";
-      }
-    }
-
-    return result;
-  },
+  name: "Фігура",
 
   showInfo() {
     console.log(`Фігура: ${this.name}`);
-    console.log(`Сторони: ${this.getSidesInfo()}`);
+  },
+
+  getArea() {
+    return 0;
   },
 
   getPerimeter() {
-    let perimeter = 0;
-
-    for (let i = 0; i < this.sides.length; i++) {
-      perimeter += this.sides[i].length;
-    }
-
-    return perimeter;
+    return 0;
   },
 };
 
 const squareByProto = {
   name: "Квадрат через __proto__",
-  sides: [
-    { name: "a", length: 5 },
-    { name: "b", length: 5 },
-    { name: "c", length: 5 },
-    { name: "d", length: 5 },
-  ],
+  side: 5,
   __proto__: figurePrototype,
+
+  showInfo() {
+    console.log(`Фігура: ${this.name}`);
+    console.log(`Сторони: a = ${this.side}, b = ${this.side}, c = ${this.side}, d = ${this.side}`);
+  },
+
+  getArea() {
+    return this.side * this.side;
+  },
+
+  getPerimeter() {
+    return this.side * 4;
+  },
 };
 
 squareByProto.showInfo();
+console.log(`Площа: ${squareByProto.getArea()}`);
 console.log(`Периметр: ${squareByProto.getPerimeter()}`);
+console.log("--------------------");
 
 const rectangleByCreate = Object.create(figurePrototype);
 rectangleByCreate.name = "Прямокутник через Object.create";
-rectangleByCreate.sides = [
-  { name: "a", length: 4 },
-  { name: "b", length: 8 },
-  { name: "c", length: 4 },
-  { name: "d", length: 8 },
-];
+rectangleByCreate.width = 4;
+rectangleByCreate.height = 8;
+
+rectangleByCreate.showInfo = function () {
+  console.log(`Фігура: ${this.name}`);
+  console.log(`Сторони: a = ${this.width}, b = ${this.height}, c = ${this.width}, d = ${this.height}`);
+};
+
+rectangleByCreate.getArea = function () {
+  return this.width * this.height;
+};
+
+rectangleByCreate.getPerimeter = function () {
+  return (this.width + this.height) * 2;
+};
 
 rectangleByCreate.showInfo();
+console.log(`Площа: ${rectangleByCreate.getArea()}`);
 console.log(`Периметр: ${rectangleByCreate.getPerimeter()}`);
 console.log("--------------------");
 
 // Тема 2: Успадкування в класах
 class Figure {
-  constructor(name, sides) {
+  constructor(name) {
     this._name = name;
-    this.sides = sides;
   }
 
   get name() {
     return this._name;
   }
 
-  getSidesInfo() {
-    let result = "";
-
-    for (let i = 0; i < this.sides.length; i++) {
-      result += `${this.sides[i].name}: ${this.sides[i].length}`;
-
-      if (i !== this.sides.length - 1) {
-        result += ", ";
-      }
-    }
-
-    return result;
-  }
-
   showInfo() {
     console.log(`Фігура: ${this.name}`);
-    console.log(`Сторони: ${this.getSidesInfo()}`);
   }
 
   getArea() {
@@ -97,35 +83,23 @@ class Figure {
   }
 
   getPerimeter() {
-    let perimeter = 0;
-
-    for (let i = 0; i < this.sides.length; i++) {
-      perimeter += this.sides[i].length;
-    }
-
-    return perimeter;
+    return 0;
   }
 }
 
 class Square extends Figure {
   constructor(side) {
-    super("Квадрат", [
-      { name: "a", length: side },
-      { name: "b", length: side },
-      { name: "c", length: side },
-      { name: "d", length: side },
-    ]);
-
+    super("Квадрат");
     this.side = side;
   }
 
   showInfo() {
     console.log(`Фігура: ${this.name}`);
-    console.log(`Сторони квадрата: ${this.getSidesInfo()}`);
+    console.log(`Сторони: a = ${this.side}, b = ${this.side}, c = ${this.side}, d = ${this.side}`);
   }
 
   getArea() {
-    return this.side ** 2;
+    return this.side * this.side;
   }
 
   getPerimeter() {
@@ -135,20 +109,14 @@ class Square extends Figure {
 
 class Rectangle extends Figure {
   constructor(width, height) {
-    super("Прямокутник", [
-      { name: "a", length: width },
-      { name: "b", length: height },
-      { name: "c", length: width },
-      { name: "d", length: height },
-    ]);
-
+    super("Прямокутник");
     this.width = width;
     this.height = height;
   }
 
   showInfo() {
     console.log(`Фігура: ${this.name}`);
-    console.log(`Сторони прямокутника: ${this.getSidesInfo()}`);
+    console.log(`Сторони: a = ${this.width}, b = ${this.height}, c = ${this.width}, d = ${this.height}`);
   }
 
   getArea() {
@@ -161,21 +129,16 @@ class Rectangle extends Figure {
 }
 
 class Triangle extends Figure {
-  constructor(firstSide, secondSide, thirdSide) {
-    super("Трикутник", [
-      { name: "a", length: firstSide },
-      { name: "b", length: secondSide },
-      { name: "c", length: thirdSide },
-    ]);
-
-    this.firstSide = firstSide;
-    this.secondSide = secondSide;
-    this.thirdSide = thirdSide;
+  constructor(sideA, sideB, sideC) {
+    super("Трикутник");
+    this.sideA = sideA;
+    this.sideB = sideB;
+    this.sideC = sideC;
   }
 
   showInfo() {
     console.log(`Фігура: ${this.name}`);
-    console.log(`Сторони трикутника: ${this.getSidesInfo()}`);
+    console.log(`Сторони: a = ${this.sideA}, b = ${this.sideB}, c = ${this.sideC}`);
   }
 
   getArea() {
@@ -183,14 +146,14 @@ class Triangle extends Figure {
 
     return Math.sqrt(
       halfPerimeter *
-        (halfPerimeter - this.firstSide) *
-        (halfPerimeter - this.secondSide) *
-        (halfPerimeter - this.thirdSide),
+        (halfPerimeter - this.sideA) *
+        (halfPerimeter - this.sideB) *
+        (halfPerimeter - this.sideC),
     );
   }
 
   getPerimeter() {
-    return this.firstSide + this.secondSide + this.thirdSide;
+    return this.sideA + this.sideB + this.sideC;
   }
 }
 

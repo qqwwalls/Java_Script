@@ -2,10 +2,21 @@
 
 // Тема 1: __proto__ та Object.create
 const figurePrototype = {
+  name: "",
+  sides: [],
+
   getSidesInfo() {
-    return this.sides
-      .map((side) => `${side.name}: ${side.length}`)
-      .join(", ");
+    let result = "";
+
+    for (let i = 0; i < this.sides.length; i++) {
+      result += `${this.sides[i].name}: ${this.sides[i].length}`;
+
+      if (i !== this.sides.length - 1) {
+        result += ", ";
+      }
+    }
+
+    return result;
   },
 
   showInfo() {
@@ -14,7 +25,13 @@ const figurePrototype = {
   },
 
   getPerimeter() {
-    return this.sides.reduce((sum, side) => sum + side.length, 0);
+    let perimeter = 0;
+
+    for (let i = 0; i < this.sides.length; i++) {
+      perimeter += this.sides[i].length;
+    }
+
+    return perimeter;
   },
 };
 
@@ -57,9 +74,17 @@ class Figure {
   }
 
   getSidesInfo() {
-    return this.sides
-      .map((side) => `${side.name}: ${side.length}`)
-      .join(", ");
+    let result = "";
+
+    for (let i = 0; i < this.sides.length; i++) {
+      result += `${this.sides[i].name}: ${this.sides[i].length}`;
+
+      if (i !== this.sides.length - 1) {
+        result += ", ";
+      }
+    }
+
+    return result;
   }
 
   showInfo() {
@@ -72,7 +97,13 @@ class Figure {
   }
 
   getPerimeter() {
-    return this.sides.reduce((sum, side) => sum + side.length, 0);
+    let perimeter = 0;
+
+    for (let i = 0; i < this.sides.length; i++) {
+      perimeter += this.sides[i].length;
+    }
+
+    return perimeter;
   }
 }
 
@@ -170,9 +201,11 @@ const figures = [
   new Square(10),
 ];
 
-figures.forEach((figure) => {
+for (let i = 0; i < figures.length; i++) {
+  const figure = figures[i];
+
   figure.showInfo();
   console.log(`Площа: ${figure.getArea()}`);
   console.log(`Периметр: ${figure.getPerimeter()}`);
   console.log("--------------------");
-});
+}

@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lesson 8</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        font-size: 22px;
+        margin: 30px auto;
+        max-width: 1100px;
+      }
+
+      .task-block {
+        background-color: #fff6ec;
+        box-sizing: border-box;
+        margin-top: 40px;
+        padding: 30px;
+      }
+
+      #color-blocks {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-bottom: 28px;
+        min-height: 110px;
+      }
+
+      .color-block {
+        cursor: pointer;
+        height: 80px;
+        width: 120px;
+      }
+
+      #add-block-button {
+        display: block;
+        font-size: 28px;
+        margin: 0 auto;
+        padding: 5px 30px;
+        width: 90%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="main-block">
+      <div id="block"></div>
+    </div>
+
+    <div class="task-block">
+      <div id="color-blocks"></div>
+      <button id="add-block-button" type="button">Add block</button>
+    </div>
+
+    <script src="scripts/lesson8.js"></script>
+  </body>
+</html>

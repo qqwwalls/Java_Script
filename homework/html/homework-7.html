@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Homework 7</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      font-size: 20px;
+      line-height: 1.4;
+      margin: 30px auto;
+      max-width: 900px;
+    }
+
+    .game-block {
+      background-color: #fff6ec;
+      box-sizing: border-box;
+      padding: 30px;
+    }
+
+    .game-info {
+      display: flex;
+      gap: 30px;
+      margin-bottom: 25px;
+    }
+
+    .game-board {
+      display: grid;
+      gap: 12px;
+      grid-template-columns: repeat(4, 1fr);
+      margin-bottom: 25px;
+      max-width: 620px;
+    }
+
+    .card {
+      background-color: #5f84aa;
+      border: none;
+      color: white;
+      cursor: pointer;
+      font-size: 28px;
+      font-weight: 700;
+      height: 110px;
+    }
+
+    .card.open {
+      background-color: #f7f7f7;
+      color: #222222;
+      cursor: default;
+    }
+
+    .card.matched {
+      background-color: #8bc28b;
+      color: #123512;
+      cursor: default;
+    }
+
+    #restart-button {
+      font-size: 22px;
+      padding: 8px 18px;
+    }
+
+    #message {
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+  <h1>Homework 7</h1>
+  <h2>Memory Game</h2>
+
+  <div class="game-block">
+    <p>
+      Відкривайте по дві картки. Якщо значення однакові, пара залишається
+      відкритою.
+    </p>
+
+    <div class="game-info">
+      <div>Кроки: <span id="moves-count">0</span></div>
+      <div>Пари: <span id="pairs-count">0</span> / 6</div>
+    </div>
+
+    <div class="game-board" id="game-board"></div>
+
+    <button id="restart-button" type="button">Restart</button>
+    <p id="message"></p>
+  </div>
+
+  <script src="../scripts/homework-7.js"></script>
+</body>
+</html>

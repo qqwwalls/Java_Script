@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 11 - LocalStorage & Promise</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; line-height: 1.6; }
+        form { margin-bottom: 20px; background: #f4f4f4; padding: 15px; border-radius: 5px; }
+        input { margin-right: 10px; padding: 5px; }
+        #product-list { margin-top: 20px; }
+        #product-list div { padding: 5px; border-bottom: 1px solid #ddd; }
+        #clear-btn { margin-top: 10px; background-color: #ff4444; color: white; border: none; padding: 8px 15px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>Урок 11: LocalStorage та Promise</h1>
+
+    <form id="form-add">
+        <input type="text" name="product" placeholder="Назва продукту" required>
+        <input type="number" name="price" placeholder="Ціна" required>
+        <button type="submit">Додати / Оновити</button>
+    </form>
+
+    <button id="clear-btn">Очистити список</button>
+
+    <div id="product-list"></div>
+
+    <script src="./scripts/lesson11.js"></script>
+</body>
+</html>

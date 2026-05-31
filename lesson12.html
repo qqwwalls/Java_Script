@@ -3,35 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lesson 11 - LocalStorage & Promise</title>
+    <title>Lesson 12 - Fetch API & Async/Await</title>
     <style>
         body { font-family: Arial, sans-serif; padding: 20px; line-height: 1.6; }
         form { margin-bottom: 20px; background: #f4f4f4; padding: 15px; border-radius: 5px; }
         input { margin-right: 10px; padding: 5px; }
         #product-list { margin-top: 20px; }
         .product-item { padding: 8px; border-bottom: 1px solid #ddd; display: flex; justify-content: space-between; max-width: 400px; }
-        #promise-display { margin-top: 30px; padding: 15px; border: 2px dashed #3b82f6; border-radius: 10px; background: #eff6ff; color: #1e40af; }
+        #promise-display { margin-top: 30px; padding: 15px; border: 2px dashed #10b981; border-radius: 10px; background: #ecfdf5; color: #065f46; }
         #clear-btn { margin-top: 10px; background-color: #ff4444; color: white; border: none; padding: 8px 15px; cursor: pointer; }
     </style>
 </head>
 <body>
-    <h1>Урок 11: LocalStorage та Promise</h1>
+    <h1>Урок 12: Робота з API (json-server)</h1>
 
     <form id="form-add">
-        <input type="text" name="product" placeholder="Назва продукту" required>
-        <input type="number" name="price" placeholder="Ціна" required>
-        <button type="submit">Додати / Оновити</button>
+        <input type="text" name="product" placeholder="Заголовок поста" required>
+        <input type="number" name="price" placeholder="Перегляди" required>
+        <button type="submit">Відправити на сервер</button>
     </form>
-
-    <button id="clear-btn">Очистити список</button>
 
     <div id="product-list"></div>
 
     <div id="promise-display">
-        <h3>Статус промісу:</h3>
-        <p id="promise-text">Очікування генерації масиву...</p>
+        <h3>Результат асинхронної перевірки:</h3>
+        <p id="promise-text">Завантаження...</p>
     </div>
 
-    <script src="./scripts/lesson11.js"></script>
+    <script src="./scripts/lesson12.js"></script>
 </body>
 </html>

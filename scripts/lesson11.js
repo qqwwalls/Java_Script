@@ -4,6 +4,7 @@ const cl = console.log;
 const form = document.getElementById("form-add");
 const productList = document.getElementById("product-list"); // Container to display products
 const clearBtn = document.getElementById("clear-btn"); // Button to clear storage
+const promiseText = document.getElementById("promise-text"); // Display for promise result
 
 // Initialize products from localStorage or as an empty array
 const products = JSON.parse(localStorage.getItem("products")) || [];
@@ -17,7 +18,8 @@ function renderProducts() {
 
   products.forEach(([name, price]) => {
     const item = document.createElement("div");
-    item.textContent = `Товар: ${name}, Ціна: ${price}`;
+    item.className = "product-item";
+    item.innerHTML = `<span><strong>${name}</strong></span> <span>${price} грн</span>`;
     productList.appendChild(item);
   });
 }
@@ -35,8 +37,9 @@ if (form) {
       return alert("Заповніть всі поля!");
     }
 
-    // Check if product already exists (case-sensitive)
-    const existingProduct = products.find((p) => p[0] === data.product);
+    // Перевірка без врахування регістру (Apple === apple)
+    const productName = data.product.trim();
+    const existingProduct = products.find((p) => p[0].toLowerCase() === productName.toLowerCase());
 
     if (existingProduct) {
       // Overwrite the price if it exists
@@ -63,6 +66,7 @@ if (clearBtn) {
 // Завдання з Promise
 const n = 10; 
 cl("Start");
+
 new Promise((resolve, reject) => {
   const randomNumbers = [];
   for (let i = 0; i < n; i++) {
@@ -74,13 +78,21 @@ new Promise((resolve, reject) => {
 
   cl("Згенерований масив:", randomNumbers);
   cl(`Парних: ${evenNumbers.length}, Непарних: ${oddNumbers.length}`);
-
-  if (evenNumbers.length > oddNumbers.length) {
-    resolve(evenNumbers.length); // Успіх: передаємо кількість парних
-  } else {
-    reject(oddNumbers.length); // Помилка: передаємо кількість непарних
+  
+  if (promiseText) {
+    promiseText.innerText = `Масив: [${randomNumbers.join(", ")}]. Рахуємо...`;
   }
+
+  // Невелика затримка для ефекту асинхронності
+  setTimeout(() => {
+    if (evenNumbers.length > oddNumbers.length) {
+      resolve(evenNumbers.length);
+    } else {
+      reject(oddNumbers.length);
+    }
+  }, 1000);
 })
-  .then((count) => cl("Promise Resolved! Парних більше. Кількість:", count))
-  .catch((count) => cl("Promise Rejected! Непарних більше (або порівну). Кількість:", count));
+  .then((count) => promiseText.innerText = `Виконано (Resolved): Парних більше (${count})`)
+  .catch((count) => promiseText.innerText = `Відхилено (Rejected): Непарних більше (${count})`);
+
 cl("End");

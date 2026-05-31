@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 13 - OpenWeatherMap</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 40px; background-color: #f0f2f5; }
+        .weather-card { max-width: 400px; background: white; padding: 25px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        h1 { color: #1e293b; font-size: 24px; margin-bottom: 20px; }
+        form { display: flex; gap: 10px; margin-bottom: 25px; }
+        input { flex: 1; padding: 12px; border: 1px solid #cbd5e1; border-radius: 8px; outline: none; }
+        button { padding: 12px 20px; background: #3b82f6; color: white; border: none; border-radius: 8px; cursor: pointer; transition: 0.3s; }
+        button:hover { background: #2563eb; }
+        #weather-result { margin-top: 20px; }
+        .temp { font-size: 48px; font-weight: bold; color: #1e293b; margin: 10px 0; }
+        .city-name { font-size: 20px; color: #64748b; }
+        .description { text-transform: capitalize; color: #3b82f6; font-weight: 500; }
+        .error { color: #ef4444; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <div class="weather-card">
+        <h1>Погода за містом</h1>
+        
+        <form id="weather-form">
+            <input type="text" id="city-input" placeholder="Введіть назву міста (напр. Kyiv)" required>
+            <select id="country-select">
+                <option value="">Усі країни</option>
+                <option value="UA">Україна</option>
+                <option value="US">США</option>
+                <option value="PL">Польща</option>
+                <option value="GB">Велика Британія</option>
+                <option value="DE">Німеччина</option>
+            </select>
+            <button type="submit">Пошук</button>
+        </form>
+
+        <div id="weather-result">
+            <!-- Тут буде результат -->
+             <p>Введіть місто, щоб побачити результат.</p>
+        </div>
+    </div>
+
+    <script src="./scripts/lesson13.js"></script>
+</body>
+</html>

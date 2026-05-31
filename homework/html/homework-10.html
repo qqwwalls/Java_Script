@@ -224,63 +224,63 @@
     <div class="form-card">
       <div class="settings-panel">
         <div class="setting-item">
-          <label data-i18n="themeLabel">Тема:</label>
+          <label data-i18n="theme_label">Тема:</label>
           <select id="theme-select">
             <option value="dark" data-i18n="dark">Темна</option>
             <option value="light" data-i18n="light">Світла</option>
           </select>
         </div>
         <div class="setting-item">
-          <label data-i18n="languageLabel">Мова:</label>
+          <label data-i18n="lang_label">Мова:</label>
           <select id="lang-select">
-            <option value="uk" data-i18n="ukrainianLanguage">Українська</option>
-            <option value="en" data-i18n="englishLanguage">English</option>
+            <option value="uk" data-i18n="uk_lang">Українська</option>
+            <option value="en" data-i18n="en_lang">English</option>
           </select>
         </div>
       </div>
 
       <form id="formcard">
         <h1 data-i18n="title">Реєстраційна форма</h1>
-        <p data-i18n="description">Приклад сучасної HTML форми з різними елементами</p>
+        <p data-i18n="desc">Приклад сучасної HTML форми з різними елементами</p>
 
         <div class="grid">
           <div class="field">
-            <label data-i18n="firstName">Ім'я</label>
-            <input type="text" name="name" data-i18n-ph="firstNamePlaceholder" placeholder="Введіть ім'я" />
+            <label data-i18n="fname">Ім'я</label>
+            <input type="text" name="name" data-i18n-ph="fname_ph" placeholder="Введіть ім'я" />
           </div>
 
           <div class="field">
-            <label data-i18n="lastName">Прізвище</label>
-            <input type="text" name="surname" data-i18n-ph="lastNamePlaceholder" placeholder="Введіть прізвище" />
+            <label data-i18n="lname">Прізвище</label>
+            <input type="text" name="surname" data-i18n-ph="lname_ph" placeholder="Введіть прізвище" />
           </div>
 
           <div class="field">
             <label data-i18n="email">Email</label>
-            <input type="email" name="email" data-i18n-ph="emailPlaceholder" placeholder="example@gmail.com" />
+            <input type="email" name="email" data-i18n-ph="email_ph" placeholder="example@gmail.com" />
           </div>
 
           <div class="field">
-            <label data-i18n="password">Пароль</label>
-            <input type="password" name="pwd" data-i18n-ph="passwordPlaceholder" placeholder="********" />
+            <label data-i18n="pwd">Пароль</label>
+            <input type="password" name="pwd" data-i18n-ph="pwd_ph" placeholder="********" />
           </div>
 
           <div class="field">
-            <label data-i18n="dateOfBirth">Дата народження</label>
+            <label data-i18n="dob">Дата народження</label>
             <input type="date" name="date" />
           </div>
 
           <div class="field">
             <label data-i18n="phone">Телефон</label>
-            <input type="tel" name="phone" data-i18n-ph="phonePlaceholder" placeholder="+380..." />
+            <input type="tel" name="phone" data-i18n-ph="phone_ph" placeholder="+380..." />
           </div>
 
           <div class="field full">
             <label data-i18n="country">Країна</label>
             <select name="country">
-              <option value="uk" data-i18n="countryUkraine">Україна</option>
-              <option value="pl" data-i18n="countryPoland">Польща</option>
-              <option value="ge" data-i18n="countryGermany">Німеччина</option>
-              <option value="usa" data-i18n="countryUsa">США</option>
+              <option value="uk" data-i18n="c_uk">Україна</option>
+              <option value="pl" data-i18n="c_pl">Польща</option>
+              <option value="ge" data-i18n="c_ge">Німеччина</option>
+              <option value="usa" data-i18n="c_usa">США</option>
             </select>
           </div>
 
@@ -289,11 +289,11 @@
             <div class="radio-group">
               <label>
                 <input type="radio" checked name="gender" value="m" />
-                <span data-i18n="genderMale">Чоловік</span>
+                <span data-i18n="g_m">Чоловік</span>
               </label>
               <label>
                 <input type="radio" name="gender" value="w" />
-                <span data-i18n="genderFemale">Жінка</span>
+                <span data-i18n="g_w">Жінка</span>
               </label>
             </div>
           </div>
@@ -309,25 +309,25 @@
           </div>
 
           <div class="field full">
-            <label data-i18n="experience">Рівень досвіду</label>
+            <label data-i18n="exp">Рівень досвіду</label>
             <input type="range" min="0" max="100" value="50" id="range" name="exp" oninput="valueText.innerText = this.value + '%'" />
             <div class="range-value" id="valueText">50%</div>
           </div>
 
           <div class="field full">
-            <label data-i18n="fileUpload">Завантажити файл</label>
+            <label data-i18n="file">Завантажити файл</label>
             <input type="file" />
           </div>
 
           <div class="field full">
             <label data-i18n="comment">Коментар</label>
-            <textarea data-i18n-ph="commentPlaceholder" placeholder="Напишіть щось..."></textarea>
+            <textarea data-i18n-ph="comment_ph" placeholder="Напишіть щось..."></textarea>
           </div>
 
           <div class="field full">
             <label>
               <input type="checkbox" name="agree" />
-              <span data-i18n="agreement">Я погоджуюсь з умовами</span>
+              <span data-i18n="agree">Я погоджуюсь з умовами</span>
             </label>
           </div>
         </div>

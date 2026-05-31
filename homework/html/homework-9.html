@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Домашнє завдання 9 - Валідація форми</title>
+  <style>
+    body {
+      max-width: 600px;
+      margin: 30px auto;
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    input[type="text"], input[type="email"], input[type="password"], 
+    input[type="date"], input[type="tel"], select, textarea {
+      width: 100%;
+      padding: 8px;
+      box-sizing: border-box;
+    }
+    .radio-group, .checkbox-group {
+      border: 1px solid transparent;
+      padding: 5px;
+    }
+    .radio-group label, .checkbox-group label {
+      display: inline-block;
+      font-weight: normal;
+      margin-right: 15px;
+    }
+    button {
+      padding: 10px 20px;
+      cursor: pointer;
+      margin-right: 10px;
+    }
+    .error {
+      border-color: red !important;
+      outline: none;
+    }
+    .radio-group.error, .checkbox-group.error {
+      border-color: red !important;
+    }
+    .success {
+      color: green;
+      font-weight: bold;
+    }
+    .fail {
+      color: red;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h2>Реєстрація користувача</h2>
+  <form name="formcard" id="formcard">
+    <div class="form-group"><label for="first-name">Ім'я:</label><input type="text" id="first-name" name="firstName"></div>
+    <div class="form-group"><label for="last-name">Прізвище:</label><input type="text" id="last-name" name="lastName"></div>
+    <div class="form-group"><label for="email">Email:</label><input type="email" id="email" name="email"></div>
+    <div class="form-group"><label for="password">Пароль:</label><input type="password" id="password" name="password"></div>
+    <div class="form-group"><label for="birthday">Дата народження:</label><input type="date" id="birthday" name="birthday"></div>
+    <div class="form-group"><label for="phone">Телефон:</label><input type="tel" id="phone" name="phone" placeholder="+380XXXXXXXXX"></div>
+    <div class="form-group">
+      <label for="country">Країна:</label>
+      <select id="country" name="country">
+        <option value="Україна">Україна</option>
+        <option value="Німеччина">Німеччина</option>
+        <option value="Польща">Польща</option>
+      </select>
+    </div>
+    <div class="form-group radio-group">
+      <label>Стать:</label>
+      <label><input type="radio" name="gender" value="Чоловік"> Чоловік</label>
+      <label><input type="radio" name="gender" value="Жінка"> Жінка</label>
+    </div>
+    <div class="form-group checkbox-group">
+      <label>Навички (мінімум 2):</label>
+      <label><input type="checkbox" name="skills" value="HTML"> HTML</label>
+      <label><input type="checkbox" name="skills" value="CSS"> CSS</label>
+      <label><input type="checkbox" name="skills" value="JS"> JS</label>
+      <label><input type="checkbox" name="skills" value="React"> React</label>
+    </div>
+    <div class="form-group"><label for="comment">Коментар (10-150 символів):</label><textarea id="comment" name="comment" rows="4"></textarea></div>
+    <div class="form-group"><label style="font-weight: normal;"><input type="checkbox" id="agreement" name="agreement"> Я погоджуюсь з умовами</label></div>
+    <div class="form-group"><button type="submit">Відправити</button><button type="reset">Очистити</button></div>
+    <p id="form-message"></p><span id="valueText" style="display: none;"></span>
+  </form>
+  <script src="../scripts/homework-9.js"></script>
+</body>
+</html>

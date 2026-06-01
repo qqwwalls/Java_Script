@@ -1,1 +1,11 @@
+# Залежності Node.js
+node_modules/
+
+# Скомпільований код TypeScript
 dist/
+
+# Системні файли macOS
+.DS_Store
+
+# Логи помилок (на майбутнє)
+*.log

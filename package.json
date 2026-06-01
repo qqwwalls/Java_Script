@@ -16,6 +16,7 @@
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "server": "npx json-server --watch db.json --port 3000"
+    "server": "npx json-server --watch db.json --port 3000",
+    "clean": "rm -f src/*.js src/*.js.map index.js index.js.map RestClient.js RestClient.js.map"
   }
 }

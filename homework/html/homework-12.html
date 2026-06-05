@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homework 12 - Погода</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 40px; background-color: #f0f2f5; }
+        .weather-card { max-width: 450px; background: white; padding: 30px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin: auto; }
+        h1 { color: #1e293b; font-size: 24px; margin-bottom: 20px; text-align: center; }
+        form { display: flex; flex-direction: column; gap: 15px; margin-bottom: 25px; }
+        select, button { padding: 12px; border: 1px solid #cbd5e1; border-radius: 8px; outline: none; font-size: 16px; }
+        button { background: #3b82f6; color: white; border: none; cursor: pointer; transition: 0.3s; font-weight: bold; }
+        button:hover { background: #2563eb; }
+        button:disabled { background: #94a3b8; cursor: not-allowed; }
+        #weather-result { margin-top: 20px; text-align: center; }
+        .temp { font-size: 48px; font-weight: bold; color: #1e293b; margin: 10px 0; }
+        .city-name { font-size: 20px; color: #64748b; font-weight: 500; }
+        .description { display: flex; flex-direction: column; align-items: center; justify-content: center; text-transform: capitalize; color: #3b82f6; font-weight: 500; }
+        .weather-img { width: 120px; height: 120px; margin-bottom: 10px; }
+        .error { color: #ef4444; font-weight: bold; text-align: center; }
+        .loading { color: #64748b; font-style: italic; text-align: center; }
+    </style>
+</head>
+<body>
+
+    <div class="weather-card">
+        <h1>Погода у світі</h1>
+        
+        <form id="weather-form">
+            <select id="country-select" required>
+                <option value="">Завантаження країн...</option>
+            </select>
+            <select id="city-select" required disabled>
+                <option value="">Оберіть країну спочатку</option>
+            </select>
+            <button type="submit" id="submit-btn" disabled>Показати погоду</button>
+        </form>
+
+        <div id="weather-result">
+            <p>Оберіть країну та місто, щоб побачити погоду.</p>
+        </div>
+    </div>
+
+    <script src="../scripts/homework-12.js"></script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homework 13 - Пошук фільмів (OMDb)</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 30px; background-color: #f0f2f5; color: #333; max-width: 1000px; margin: 0 auto; }
+        h1 { text-align: center; color: #1e293b; margin-bottom: 30px; }
+        
+        .search-box { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); display: flex; gap: 10px; justify-content: center; margin-bottom: 20px; flex-wrap: wrap; }
+        input, select, button { padding: 10px; border: 1px solid #cbd5e1; border-radius: 5px; font-size: 16px; outline: none; }
+        input { flex-grow: 1; max-width: 400px; }
+        button { background: #3b82f6; color: white; border: none; cursor: pointer; font-weight: bold; transition: 0.3s; }
+        button:hover { background: #2563eb; }
+        
+        .movies-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; margin-bottom: 20px; }
+        .movie-card { background: white; border-radius: 10px; padding: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); text-align: center; display: flex; flex-direction: column; }
+        .movie-card img { max-width: 100%; height: auto; border-radius: 5px; margin-bottom: 10px; flex-grow: 1; object-fit: cover; max-height: 280px; }
+        .movie-card h3 { font-size: 18px; margin: 5px 0; color: #1e293b; }
+        .movie-card p { color: #64748b; margin-bottom: 15px; font-size: 14px; }
+        .movie-card button { width: 100%; background: #10b981; }
+        .movie-card button:hover { background: #059669; }
+
+        .pagination { display: flex; justify-content: center; gap: 5px; margin-bottom: 30px; flex-wrap: wrap; }
+        .pagination button { background: #e2e8f0; color: #1e293b; padding: 8px 12px; }
+        .pagination button:hover { background: #cbd5e1; }
+        .pagination button.active { background: #3b82f6; color: white; }
+
+        .details-box { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px; }
+        .details-box img { max-width: 300px; border-radius: 10px; object-fit: cover; }
+        .details-info { flex: 1; min-width: 250px; }
+        .details-info h2 { margin-top: 0; color: #1e293b; }
+        .details-info p { margin-bottom: 10px; line-height: 1.5; font-size: 15px; }
+        .details-info strong { color: #1e293b; }
+
+        .error, .not-found { text-align: center; color: #ef4444; font-size: 20px; font-weight: bold; margin-top: 20px; }
+        .hidden { display: none !important; }
+    </style>
+</head>
+<body>
+
+    <h1>Пошук серіалів (TVMaze API - Альтернатива)</h1>
+
+    <form class="search-box" id="search-form">
+        <input type="text" id="search-title" placeholder="Введіть назву серіалу (напр. Batman)..." required>
+        <button type="submit">Search</button>
+    </form>
+
+    <div id="not-found-msg" class="not-found hidden">Show not found!</div>
+    <div id="movies-container" class="movies-grid"></div>
+    <div id="pagination-container" class="pagination"></div>
+    <div id="details-container" class="hidden"></div>
+
+    <script src="../scripts/homework-13.js"></script>
+</body>
+</html>
